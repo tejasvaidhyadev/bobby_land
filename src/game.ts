@@ -29,20 +29,20 @@ const transform2 = new Transform({
 })
 entity.addComponentOrReplace(transform2)
 
-const entity2 = new Entity('entity2')
-engine.addEntity(entity2)
-entity2.setParent(_scene)
+const final = new Entity('final')
+engine.addEntity(final)
+final.setParent(_scene)
 const transform3 = new Transform({
-  position: new Vector3(16, 0, 15),
+  position: new Vector3(16, 0, 16),
   rotation: new Quaternion(0, 0, 0, 1),
   scale: new Vector3(0.8977417945861816, 1, 0.8904253244400024)
 })
-entity2.addComponentOrReplace(transform3)
-const gltfShape2 = new GLTFShape("cdcf9ef7-2e33-4dc1-911e-98fcf8ad339b/55.glb")
+final.addComponentOrReplace(transform3)
+const gltfShape2 = new GLTFShape("6f029ac9-bc91-49f8-834d-55c5c4e78008/final.glb")
 gltfShape2.withCollisions = true
 gltfShape2.isPointerBlocker = true
 gltfShape2.visible = true
-entity2.addComponentOrReplace(gltfShape2)
+final.addComponentOrReplace(gltfShape2)
 
 // UI Elements
 const canvas = new UICanvas()
@@ -151,7 +151,7 @@ engine.addEntity(screen)
 // #5
 myVideoTexture.play()
 myVideoTexture.pause()
-myVideoTexture.loop = true 
+myVideoTexture.loop = false 
 
 // 
 const screen_image = new Entity() 
@@ -225,3 +225,41 @@ engine.addEntity(GM_mario_screen)
 // #5
 gmmVideoTexture.play()
 gmmVideoTexture.loop = true 
+
+const button_Patreon = new Entity()
+button_Patreon.addComponent(new GLTFShape("models/Glowing_Stone_04.glb"))
+// const transform_button_Patreon = new Transform({ position: new Vector3(13, 1, 7), 
+//   scale: new Vector3(1, 1, 1)                                              
+
+// })
+
+button_Patreon.addComponent(
+  new Transform({
+    position: new Vector3(12, 1, 9),
+    scale: new Vector3(1, 1, 1)
+
+  })
+)
+
+//button_Patreon.addComponent(transform_button_Patreon)
+button_Patreon.addComponent(
+  
+  new OnPointerDown(
+    (e) => {
+      if (e.buttonId == 0) {
+        openExternalURL("https://opensea.io/collection/good-morning-video-collection")
+      } else if (e.buttonId == 1) {
+        openExternalURL("https://github.com/decentraland-scenes/Wearables-In-world-Market")
+      } 
+      else if (e.buttonId == 2) {
+        openExternalURL("https://github.com/decentraland-scenes/Wearables-In-world-Market")
+      } 
+    },
+    { button: ActionButton.ANY ,
+      showFeedback: true,
+      hoverText: "open",
+    }
+
+  )
+)
+engine.addEntity(button_Patreon)
