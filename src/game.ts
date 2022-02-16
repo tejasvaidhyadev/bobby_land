@@ -29,13 +29,14 @@ const transform2 = new Transform({
 })
 entity.addComponentOrReplace(transform2)
 
+
 const final = new Entity('final')
 engine.addEntity(final)
 final.setParent(_scene)
 const transform3 = new Transform({
-  position: new Vector3(16, 0, 16),
-  rotation: new Quaternion(0, 0, 0, 1),
-  scale: new Vector3(0.8977417945861816, 1, 0.8904253244400024)
+  position: new Vector3(0, 0, 16),
+  rotation: new Quaternion(1.5394153601527394e-15, -0.7071068286895752, 8.429369557916289e-8, 0.7071068286895752),
+  scale: new Vector3(0.8699772357940674, 1, 0.8904260396957397)
 })
 final.addComponentOrReplace(transform3)
 const gltfShape2 = new GLTFShape("6f029ac9-bc91-49f8-834d-55c5c4e78008/final.glb")
@@ -43,6 +44,7 @@ gltfShape2.withCollisions = true
 gltfShape2.isPointerBlocker = true
 gltfShape2.visible = true
 final.addComponentOrReplace(gltfShape2)
+
 
 // UI Elements
 const canvas = new UICanvas()
@@ -132,12 +134,12 @@ const screen = new Entity()
 screen.addComponent(new PlaneShape())
 screen.addComponent(
   new Transform({
-    position: new Vector3(13, 2, 10),
-    scale: new Vector3(4, 2, 1)
+    position: new Vector3(4, 2, 16),
+    scale: new Vector3(5, 2, 1)
 
   })
 )
-screen.getComponent(Transform).rotate(Vector3.Up(), 270)
+screen.getComponent(Transform).rotate(Vector3.Up(), 180)
 
 
 screen.addComponent(myMaterial)
@@ -158,7 +160,7 @@ const screen_image = new Entity()
 screen_image.addComponent(new PlaneShape())
 screen_image.addComponent(
   new Transform({
-    position: new Vector3(13, 2.5, 7),
+    position: new Vector3(7.5, 2.5, 16),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -172,7 +174,7 @@ let QRMaterial = new Material()
     QRMaterial.specularIntensity = 0
     QRMaterial.albedoTexture = sunUITexture
 
-screen_image.getComponent(Transform).rotate(Vector3.Up(), 90)
+screen_image.getComponent(Transform).rotate(Vector3.Up(), 180)
 screen_image.addComponent(QRMaterial)
 engine.addEntity(screen_image)
 
@@ -183,7 +185,7 @@ engine.addEntity(screen_image)
 
 // gm_mario texture
 const gmmVideoClip = new VideoClip(
-  "https://player.vimeo.com/external/675798159.m3u8?s=ef3d71a7739a06eae282c03fd215b786c81798c1"
+  "https://player.vimeo.com/progressive_redirect/download/582455585/rendition/1080p/good_morning_114_-_03.08.2021%20%281080p%29.mp4?loc=external&signature=9513a2a6e49b71eeac7760f91231d46abdc15e78679cde7552c251b1eae46796"
 )
 
 // #2
@@ -206,12 +208,12 @@ const GM_mario_screen = new Entity()
 GM_mario_screen.addComponent(new PlaneShape())
 GM_mario_screen.addComponent(
   new Transform({
-    position: new Vector3(13, 1.5, 7),
+    position: new Vector3(9, 2.5, 16),
     scale: new Vector3(1, 1, 1)
 
   })
 )
-GM_mario_screen.getComponent(Transform).rotate(Vector3.Up(), 270)
+GM_mario_screen.getComponent(Transform).rotate(Vector3.Up(), 180)
 
 
 GM_mario_screen.addComponent(gmmMaterial)
@@ -224,25 +226,76 @@ engine.addEntity(GM_mario_screen)
 
 // #5
 gmmVideoTexture.play()
-gmmVideoTexture.loop = true 
+gmmVideoTexture.loop = false 
 
-const button_Patreon = new Entity()
-button_Patreon.addComponent(new GLTFShape("models/Glowing_Stone_04.glb"))
-// const transform_button_Patreon = new Transform({ position: new Vector3(13, 1, 7), 
-//   scale: new Vector3(1, 1, 1)                                              
 
-// })
-
-button_Patreon.addComponent(
+// second image of mario in groud floor 
+const screen_image2 = new Entity() 
+screen_image2.addComponent(new PlaneShape())
+screen_image2.addComponent(
   new Transform({
-    position: new Vector3(12, 1, 9),
+    position: new Vector3(7.5, 1.3, 16),
     scale: new Vector3(1, 1, 1)
 
   })
 )
 
-//button_Patreon.addComponent(transform_button_Patreon)
-button_Patreon.addComponent(
+const sunUITexture2 = new Texture("images/support.png")
+
+let QRMaterial2 = new Material()
+    QRMaterial2.metallic = 0
+    QRMaterial2.roughness = 1
+    QRMaterial2.specularIntensity = 0
+    QRMaterial2.albedoTexture = sunUITexture2
+
+screen_image2.getComponent(Transform).rotate(Vector3.Up(), 180)
+screen_image2.addComponent(QRMaterial2)
+   
+screen_image2.addComponent(
+  
+  new OnPointerDown(
+    (e) => {
+      if (e.buttonId == 0) {
+        openExternalURL("https://www.patreon.com/mariowantstorun")
+      } else if (e.buttonId == 1) {
+        openExternalURL("https://github.com/decentraland-scenes/Wearables-In-world-Market")
+      } 
+      else if (e.buttonId == 2) {
+        openExternalURL("https://github.com/decentraland-scenes/Wearables-In-world-Market")
+      } 
+    },
+    { button: ActionButton.ANY ,
+      showFeedback: true,
+      hoverText: "open",
+    }
+
+  )
+)
+engine.addEntity(screen_image2)
+
+// website of mario in groud floor 
+const website_image2 = new Entity() 
+website_image2.addComponent(new PlaneShape())
+website_image2.addComponent(
+  new Transform({
+    position: new Vector3(9, 1.3, 16),
+    scale: new Vector3(1, 1, 1)
+
+  })
+)
+
+const webUITexture2 = new Texture("images/1.jpeg")
+
+let QRMaterial3 = new Material() 
+    QRMaterial3.metallic = 0
+    QRMaterial3.roughness = 1
+    QRMaterial3.specularIntensity = 0
+    QRMaterial3.albedoTexture = webUITexture2
+
+website_image2.getComponent(Transform).rotate(Vector3.Up(), 180)
+website_image2.addComponent(QRMaterial3)
+   
+website_image2.addComponent(
   
   new OnPointerDown(
     (e) => {
@@ -262,4 +315,133 @@ button_Patreon.addComponent(
 
   )
 )
-engine.addEntity(button_Patreon)
+engine.addEntity(website_image2)
+
+
+
+
+
+// // Top floor large screen 
+// // video player
+// const largeVideoClip = new VideoClip(
+//   "https://player.vimeo.com/external/676293821.m3u8?s=f8d6b28206c296cac92972c89d9712d4be06df68"
+// )
+// const largeVideoTexture = new VideoTexture(largeVideoClip)
+
+// const largeVideoClip2 = new VideoClip("https://player.vimeo.com/external/676041195.m3u8?s=d4bce29eb85e590419257a72dca82d81b6c4d803")
+// const largeVideoTexture2 = new VideoTexture(largeVideoClip2)
+
+// // #3
+// const largeMaterial = new Material()
+// largeMaterial.albedoTexture = largeVideoTexture
+// largeMaterial.roughness = 1.0
+// largeMaterial.specularIntensity = 0
+// largeMaterial.metallic = 0
+// largeMaterial.emissiveTexture = largeVideoTexture
+// largeMaterial.emissiveColor = Color3.White()
+// largeMaterial.emissiveIntensity = 0.6
+// largeMaterial.albedoColor = new Color3(0.5, 0, 0.5)
+
+// const largeMaterial2 = new Material()
+// largeMaterial2.albedoTexture = largeVideoTexture2
+// largeMaterial2.roughness = 1.0
+// largeMaterial2.specularIntensity = 0
+// largeMaterial2.metallic = 0
+// largeMaterial2.emissiveTexture = largeVideoTexture2
+// largeMaterial2.emissiveColor = Color3.White()
+// largeMaterial2.emissiveIntensity = 0.6
+// largeMaterial2.albedoColor = new Color3(0.5, 0, 0.5)
+
+
+// const large_screen = new Entity() 
+// large_screen.addComponent(new PlaneShape())
+// large_screen.addComponent(
+//   new Transform({
+//     position: new Vector3(10, 2, 10),
+//     scale: new Vector3(4, 2, 1)
+
+//   })
+// )
+// large_screen.getComponent(Transform).rotate(Vector3.Up(), 270)
+
+
+// large_screen.addComponent(largeMaterial)
+// // large_screen.addComponent(
+// //   new OnPointerDown(() => {
+// //     largeVideoTexture.playing = !largeVideoTexture.playing
+// //   })
+// // )
+// large_screen.addComponent(largeMaterial2)
+
+// engine.addEntity(large_screen)
+
+// // #5
+// largeVideoTexture.play()
+// largeVideoTexture.pause()
+// largeVideoTexture.loop = false 
+
+
+// largeVideoTexture2.play()
+// largeVideoTexture2.pause()
+// largeVideoTexture2.loop = false 
+
+// // buttons on for video playing 
+
+// const play1_button_Patreon = new Entity()
+// play1_button_Patreon.addComponent(new GLTFShape("models/Glowing_Stone_04.glb"))
+
+// play1_button_Patreon.addComponent(
+//   new Transform({
+//     position: new Vector3(9, 0.5, 9),
+//     scale: new Vector3(1, 1, 1)
+
+//   })
+// )
+
+// //button_Patreon.addComponent(transform_button_Patreon)
+// play1_button_Patreon.addComponent(
+  
+//   new OnPointerDown(
+//     (e) => {
+//       if (e.buttonId == 0) {
+//         largeVideoTexture.playing = !largeVideoTexture.playing
+//       } 
+//     },
+//     { button: ActionButton.ANY ,
+//       showFeedback: true,
+//       hoverText: "open",
+//     }
+
+//   )
+// )
+// engine.addEntity(play1_button_Patreon)
+
+// // buttons-2 on for video playing 
+
+// //button_Patreon.addComponent(transform_button_Patreon)
+// const play2_button_Patreon = new Entity()
+// play2_button_Patreon.addComponent(new GLTFShape("models/Glowing_Stone_04.glb"))
+// play2_button_Patreon.addComponent(
+//   new Transform({
+//     position: new Vector3(9, 0.5, 10),
+//     scale: new Vector3(1, 1, 1)
+
+//   })
+// )
+
+// play2_button_Patreon.addComponent(
+  
+//   new OnPointerDown(
+//     (e) => {
+//       if (e.buttonId == 0) {
+//         largeVideoTexture2.playing = !largeVideoTexture2.playing
+//       } 
+//     },
+//     { button: ActionButton.ANY ,
+//       showFeedback: true,
+//       hoverText: "open",
+//     }
+
+//   )
+// )
+// engine.addEntity(play2_button_Patreon)

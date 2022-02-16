@@ -1,6 +1,6 @@
 {
   "display": {
-    "title": "New scene",
+    "title": "Bobby_land",
     "favicon": "favicon_asset",
     "navmapThumbnail": "scene-thumbnail.png"
   },
@@ -22,7 +22,7 @@
     "signalling": "https://signalling-01.decentraland.org"
   },
   "policy": {
-    "contentRating": "E",
+    "contentRating": "N",
     "fly": true,
     "voiceEnabled": true,
     "blacklist": [],
@@ -36,7 +36,7 @@
       "x": 0,
       "y": 0
     },
-    "rotation": "east",
+    "rotation": "north",
     "layout": {
       "rows": 1,
       "cols": 1
