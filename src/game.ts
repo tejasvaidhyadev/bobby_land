@@ -134,7 +134,7 @@ const screen = new Entity()
 screen.addComponent(new PlaneShape())
 screen.addComponent(
   new Transform({
-    position: new Vector3(4, 2, 15.5),
+    position: new Vector3(4, 2, 15),
     scale: new Vector3(5, 2, 1)
 
   })
@@ -160,7 +160,7 @@ const screen_image = new Entity()
 screen_image.addComponent(new PlaneShape())
 screen_image.addComponent(
   new Transform({
-    position: new Vector3(7.5, 2.5, 15.5),
+    position: new Vector3(7.5, 2.5, 15),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -208,7 +208,7 @@ const GM_mario_screen = new Entity()
 GM_mario_screen.addComponent(new PlaneShape())
 GM_mario_screen.addComponent(
   new Transform({
-    position: new Vector3(9, 2.5, 15.5),
+    position: new Vector3(9, 2.5, 15),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -234,7 +234,7 @@ const screen_image2 = new Entity()
 screen_image2.addComponent(new PlaneShape())
 screen_image2.addComponent(
   new Transform({
-    position: new Vector3(7.5, 1.3, 15.5),
+    position: new Vector3(7.5, 1.3, 15),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -278,7 +278,7 @@ const website_image2 = new Entity()
 website_image2.addComponent(new PlaneShape())
 website_image2.addComponent(
   new Transform({
-    position: new Vector3(9, 1.3, 15.5),
+    position: new Vector3(9, 1.3, 15),
     scale: new Vector3(1, 1, 1)
 
   })
