@@ -134,7 +134,7 @@ const screen = new Entity()
 screen.addComponent(new PlaneShape())
 screen.addComponent(
   new Transform({
-    position: new Vector3(4, 2, 16),
+    position: new Vector3(4, 2, 15.5),
     scale: new Vector3(5, 2, 1)
 
   })
@@ -160,7 +160,7 @@ const screen_image = new Entity()
 screen_image.addComponent(new PlaneShape())
 screen_image.addComponent(
   new Transform({
-    position: new Vector3(7.5, 2.5, 16),
+    position: new Vector3(7.5, 2.5, 15.5),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -185,7 +185,7 @@ engine.addEntity(screen_image)
 
 // gm_mario texture
 const gmmVideoClip = new VideoClip(
-  "https://player.vimeo.com/progressive_redirect/download/582455585/rendition/1080p/good_morning_114_-_03.08.2021%20%281080p%29.mp4?loc=external&signature=9513a2a6e49b71eeac7760f91231d46abdc15e78679cde7552c251b1eae46796"
+  "https://player.vimeo.com/external/582455585.m3u8?s=17e9789fe35ce170a7fe9d9fef744145ccdaaaa1"
 )
 
 // #2
@@ -208,7 +208,7 @@ const GM_mario_screen = new Entity()
 GM_mario_screen.addComponent(new PlaneShape())
 GM_mario_screen.addComponent(
   new Transform({
-    position: new Vector3(9, 2.5, 16),
+    position: new Vector3(9, 2.5, 15.5),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -234,7 +234,7 @@ const screen_image2 = new Entity()
 screen_image2.addComponent(new PlaneShape())
 screen_image2.addComponent(
   new Transform({
-    position: new Vector3(7.5, 1.3, 16),
+    position: new Vector3(7.5, 1.3, 15.5),
     scale: new Vector3(1, 1, 1)
 
   })
@@ -278,7 +278,7 @@ const website_image2 = new Entity()
 website_image2.addComponent(new PlaneShape())
 website_image2.addComponent(
   new Transform({
-    position: new Vector3(9, 1.3, 16),
+    position: new Vector3(9, 1.3, 15.5),
     scale: new Vector3(1, 1, 1)
 
   })
