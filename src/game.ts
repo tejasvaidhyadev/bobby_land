@@ -329,13 +329,13 @@ const large_screen = new Entity()
 large_screen.addComponent(new PlaneShape())
 large_screen.addComponent(
   new Transform({
-    position: new Vector3(0.5, 14, 10),
-    scale: new Vector3(8, 4, 1)
+    position: new Vector3(7, 15, 14.5),
+    scale: new Vector3(12, 6, 1)
 
   })
 )
 large_screen.setParent(_scene)
-large_screen.getComponent(Transform).rotate(Vector3.Up(), 90)
+large_screen.getComponent(Transform).rotate(Vector3.Up(), 180)
 
 const videoClip_large = new VideoClip("https://stream.mux.com/pxpzVpTHFpsNOGVrWIiH0101dSyIzff364tSz01KigX7oM.m3u8")
 const large_videoTexture = new VideoTexture(videoClip_large)
