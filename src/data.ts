@@ -86,3 +86,118 @@ export const data = [
     },
   ]
   
+
+  // // video player
+// const largeVideoClip = new VideoClip(
+//   "https://player.vimeo.com/external/676293821.m3u8?s=f8d6b28206c296cac92972c89d9712d4be06df68"
+// )
+// const largeVideoTexture = new VideoTexture(largeVideoClip)
+
+// const largeVideoClip2 = new VideoClip("https://player.vimeo.com/external/676041195.m3u8?s=d4bce29eb85e590419257a72dca82d81b6c4d803")
+// const largeVideoTexture2 = new VideoTexture(largeVideoClip2)
+
+// // #3
+
+// const largeMaterial2 = new Material()
+// largeMaterial2.albedoTexture = largeVideoTexture2
+// largeMaterial2.roughness = 1.0
+// largeMaterial2.specularIntensity = 0
+// largeMaterial2.metallic = 0
+// largeMaterial2.emissiveTexture = largeVideoTexture2
+// largeMaterial2.emissiveColor = Color3.White()
+// largeMaterial2.emissiveIntensity = 0.6
+// largeMaterial2.albedoColor = new Color3(0.5, 0, 0.5)
+
+
+// const large_screen = new Entity() 
+// large_screen.addComponent(new PlaneShape())
+// large_screen.addComponent(
+//   new Transform({
+//     position: new Vector3(10, 2, 10),
+//     scale: new Vector3(4, 2, 1)
+
+//   })
+// )
+// large_screen.getComponent(Transform).rotate(Vector3.Up(), 270)
+
+
+// large_screen.addComponent(largeMaterial)
+// // large_screen.addComponent(
+// //   new OnPointerDown(() => {
+// //     largeVideoTexture.playing = !largeVideoTexture.playing
+// //   })
+// // )
+// large_screen.addComponent(largeMaterial2)
+
+// engine.addEntity(large_screen)
+
+// // #5
+// largeVideoTexture.play()
+// largeVideoTexture.pause()
+// largeVideoTexture.loop = false 
+
+
+// largeVideoTexture2.play()
+// largeVideoTexture2.pause()
+// largeVideoTexture2.loop = false 
+
+// // buttons on for video playing 
+
+// const play1_button_Patreon = new Entity()
+// play1_button_Patreon.addComponent(new GLTFShape("models/Glowing_Stone_04.glb"))
+
+// play1_button_Patreon.addComponent(
+//   new Transform({
+//     position: new Vector3(9, 0.5, 9),
+//     scale: new Vector3(1, 1, 1)
+
+//   })
+// )
+
+// //button_Patreon.addComponent(transform_button_Patreon)
+// play1_button_Patreon.addComponent(
+  
+//   new OnPointerDown(
+//     (e) => {
+//       if (e.buttonId == 0) {
+//         largeVideoTexture.playing = !largeVideoTexture.playing
+//       } 
+//     },
+//     { button: ActionButton.ANY ,
+//       showFeedback: true,
+//       hoverText: "open",
+//     }
+
+//   )
+// )
+// engine.addEntity(play1_button_Patreon)
+
+// // buttons-2 on for video playing 
+
+// //button_Patreon.addComponent(transform_button_Patreon)
+// const play2_button_Patreon = new Entity()
+// play2_button_Patreon.addComponent(new GLTFShape("models/Glowing_Stone_04.glb"))
+// play2_button_Patreon.addComponent(
+//   new Transform({
+//     position: new Vector3(9, 0.5, 10),
+//     scale: new Vector3(1, 1, 1)
+
+//   })
+// )
+
+// play2_button_Patreon.addComponent(
+  
+//   new OnPointerDown(
+//     (e) => {
+//       if (e.buttonId == 0) {
+//         largeVideoTexture2.playing = !largeVideoTexture2.playing
+//       } 
+//     },
+//     { button: ActionButton.ANY ,
+//       showFeedback: true,
+//       hoverText: "open",
+//     }
+
+//   )
+// )
+// engine.addEntity(play2_button_Patreon)
