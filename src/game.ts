@@ -29,7 +29,7 @@ const transform2 = new Transform({
 entity.addComponentOrReplace(transform2)
 
 
-const final = new Entity('final')
+const final = new Entity('last_col')
 engine.addEntity(final)
 final.setParent(_scene)
 const transform3 = new Transform({
@@ -357,3 +357,42 @@ nft_collection.addComponent(
   )
 )
 engine.addEntity(nft_collection) 
+
+// filmarare Landmark
+// NFT collection detail
+const fr_landmark = new Entity() 
+fr_landmark.addComponent(new PlaneShape())
+fr_landmark.addComponent(
+  new Transform({
+    position: new Vector3(3.6, 1.2, 6.5),
+    scale: new Vector3(1.2, 0.4, 1.7)
+
+  })
+)
+fr_landmark.getComponent(Transform).rotate(Vector3.Up(), 180)  
+
+const fr_landmark_texture = new Texture("images/filmrare.png")
+
+const fr_landmark_mat = new Material()
+fr_landmark_mat.albedoTexture = fr_landmark_texture
+fr_landmark_mat.roughness = 1.0
+fr_landmark_mat.specularIntensity = 0
+fr_landmark_mat.metallic = 0
+
+
+fr_landmark.addComponent(fr_landmark_mat)
+fr_landmark.addComponent(
+  new OnPointerDown(
+    (e) => {
+      if (e.buttonId == 0) {
+        openExternalURL("https://play.decentraland.org/?island=I13wzx&position=-5%2C49&realm=hela")
+      }  
+    },
+    { button: ActionButton.ANY ,
+      showFeedback: true,
+      hoverText: "open",
+    }
+
+  )
+)
+engine.addEntity(fr_landmark) 
